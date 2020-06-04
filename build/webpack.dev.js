@@ -6,6 +6,7 @@ const FriendlyErrors = require('friendly-errors-webpack-plugin')
 const os=require("os");
 
 const port = "3000"
+
 // 获取ip
 function getIp(){
   const networkInterfaces=os.networkInterfaces();

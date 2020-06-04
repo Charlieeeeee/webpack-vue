@@ -6,6 +6,8 @@ const webpack = require('webpack');
 const path = require('path');
 const commonConfig = require('./webpack.common');
 
+console.log('process.cwd()',process.cwd())
+
 let env = '';
 switch (process.argv[3]) {
   case 'prod': {

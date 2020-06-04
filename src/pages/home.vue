@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
     name:"home",
     mounted(){
-       axios.get
+    //    axios.get
        this.$nextTick(()=>{
             console.log('NODE_ENV:',process.env.NODE_ENV)
        })
