@@ -46,13 +46,13 @@ module.exports = {
               cacheDirectory: true // 优化打包速度
             }
           },
-          // {
-          //   loader: 'eslint-loader',
-          //   options: {
-          //     // eslint options (if necessary)
-          //     fix: true
-          //   }
-          // }
+          {
+            loader: 'eslint-loader',
+            options: {
+              // eslint options (if necessary)
+              fix: true
+            }
+          }
         ]
       },
       {

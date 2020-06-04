@@ -15,6 +15,10 @@ export default {
     //    axios.get
        this.$nextTick(()=>{
             console.log('NODE_ENV:',process.env.NODE_ENV)
+            console.log([1,2,3].includes(1))
+            new Promise((resolve,reject)=>{
+                resolve('ok')
+            })
        })
     }
 }
