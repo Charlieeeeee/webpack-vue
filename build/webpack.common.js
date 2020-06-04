@@ -2,7 +2,6 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const projectPath = process.cwd();
 
 module.exports = {
@@ -34,18 +33,6 @@ module.exports = {
       hash: true
     }),
     new VueLoaderPlugin(),
-    new HardSourceWebpackPlugin({
-      cacheDirectory: 'node_modules/.cache/hard-source/[confighash]',
-      recordsPath: 'node_modules/.cache/hard-source/[confighash]/records.json',
-      configHash: function (webpackConfig) {
-        return require('node-object-hash')({ sort: false }).hash(webpackConfig);
-      },
-      environmentHash: {
-        root: process.cwd(),
-        directories: [],
-        files: ['package-lock.json', 'yarn.lock'],
-      },
-    }),
   ],
   module: {
     rules: [

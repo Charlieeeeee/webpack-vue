@@ -6,8 +6,6 @@ const webpack = require('webpack');
 const path = require('path');
 const commonConfig = require('./webpack.common');
 
-console.log('process.cwd()',process.cwd())
-
 let env = '';
 switch (process.argv[3]) {
   case 'prod': {
@@ -89,7 +87,7 @@ const prodConfig = {
               outputPath:'./static/',
               publicPath: '../', // 解决打包后图片引用路径问题
               name: 'assets/[name].[ext]',
-              limit: 10000// 10kb以内的才转为base64
+              limit: 0// 10kb以内的才转为base64
             }
           },
           {
