@@ -1,0 +1,21 @@
+
+export default {
+  mode: 'hash',
+  routes: [
+    {
+      path: '',
+      redirect: '/home'
+    },
+    {
+      path: '/home',
+      name: 'home',
+      component: () => import('@/pages/home')// 懒加载，组件，页面加载更快
+    },
+    {
+      path: '/msg',
+      name: 'msg',
+      // component: resolve => require(['@/pages/msg'], resolve) //这种方式会多打包出一个JS
+      component: () => import('@/pages/msg')
+    }
+  ]
+};

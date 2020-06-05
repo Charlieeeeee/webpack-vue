@@ -9,16 +9,16 @@ module.exports = {
   //     main:'./src/index.js',
   //     // theOther:'./src/theOther.js'
   // },
-  entry: './src/index.js',
+  entry: './src/main.js',
   output: {
     filename: './static/js/main~[hash:8].js',
     path: `${projectPath}/dist`,
     publicPath: './'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json'], // 表示这几个文件的后缀名可以省略不写
+    extensions: ['.js', '.jsx', '.json','.vue'], // 表示这几个文件的后缀名可以省略不写
     alias: {
-      '@': path.resolve(__dirname, 'src/')// 这样@就表示项目根目录中src的这一层路径（绝对路径）
+      '@': path.resolve(__dirname, '../src/')// 这样@就表示项目根目录中src的这一层路径（绝对路径）
     }
   },
   plugins: [
@@ -37,6 +37,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.json$/,
+        exclude: /(node_modules)/,
+        loader: 'json-loader'
+      },
+      {
+        test:/\.vue$/,
+        loader:'vue-loader'
+      },
+      {
         test: /\.js$/,
         exclude: /(node_modules)/, // 加快编译速度，不包含node_modules文件夹内容
         use: [
@@ -54,15 +63,6 @@ module.exports = {
             }
           }
         ]
-      },
-      {
-        test: /\.json$/,
-        exclude: /(node_modules)/,
-        loader: 'json-loader'
-      },
-      {
-        test:/\.vue$/,
-        loader:'vue-loader'
       }
     ]
   }

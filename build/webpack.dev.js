@@ -33,7 +33,7 @@ const ip = getIp();
 
 const devConfig = {
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: '#source-map',
   devServer: {
     clientLogLevel: 'warning', // warning时才输出更新// 可能的值有 none, error, warning 或者 info（默认值)
     hot: true, // 启用 webpack 的模块热替换特性, 这个需要配合： webpack.HotModuleReplacementPlugin插件

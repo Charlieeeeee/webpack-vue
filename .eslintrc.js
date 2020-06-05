@@ -3,17 +3,19 @@
 module.exports = {
     root: true,
     parserOptions: {
-      parser: 'babel-eslint'
+      parser: 'vue-eslint-parser',//'babel-eslint'不识别dynamic-import
     },
     env: {
-      browser: true
+      browser: true,
+      node: true,
+      commonjs: true,
+      es6: true
     },
     extends: [
-      // https://github.com/standard/standard/blob/master/docs/RULES-en.md
-      'standard'
+      '@vue/standard'
     ],
     globals: {
-      NODE_ENV: false
+      NODE_ENV: true
     },
     rules: {
       'no-new': 'off',

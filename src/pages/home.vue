@@ -1,45 +1,17 @@
 <template>
   <div class="container">
-      <div class="img"></div>
-      <p>vue</p>
-      <p class="number">0123456789</p>
+      1234567890
   </div>
 </template>
 
 <script>
-// import axios from 'axios'
-
 export default {
-    name:"home",
-    mounted(){
-    //    axios.get
-       this.$nextTick(()=>{
-            console.log('NODE_ENV:',process.env.NODE_ENV)
-            console.log([1,2,3].includes(1))
-            new Promise((resolve,reject)=>{
-                resolve('ok')
-            })
-       })
-    }
+    name:"home"
 }
 </script>
 
 <style lang="scss" scoped>
-@font-face {
-    font-family: 'number';
-    src: url('./../assets/DS-DIGIB.ttf');
+.container{
+    font-family: DS-DIGIB;
 }
-    .container{
-        color: green;
-        .img{
-            width: 200px;
-            height: 100px;
-            background: url('./../assets/bg.png') no-repeat center;
-        }
-        .number{
-            color: #000;
-            font-family: number;
-            font-size: 50px;
-        }
-    }
 </style>
