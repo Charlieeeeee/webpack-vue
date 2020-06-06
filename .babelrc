@@ -5,6 +5,7 @@
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
         "array-includes",
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
         [
           "@babel/plugin-transform-runtime",
           {
