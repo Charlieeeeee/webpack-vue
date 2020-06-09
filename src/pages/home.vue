@@ -6,7 +6,17 @@
 
 <script>
 export default {
-    name:"home"
+    name:"home",
+    mounted(){
+        new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                resolve('is done')
+            })
+        }).then(res=>{
+            console.log('promise',res,[1].includes(1))
+        })
+
+    }
 }
 </script>
 

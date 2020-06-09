@@ -1,6 +1,8 @@
 {
     "presets": [
-      ["@babel/preset-env",{"modules": "commonjs"}]
+      ["@babel/preset-env",{
+        "modules": "commonjs"
+      }]
     ],
     "plugins": [
         "@babel/plugin-syntax-dynamic-import",
@@ -14,7 +16,7 @@
             "helpers": true,
             "regenerator": true,
             "useESModules": false,
-            "version": "7.0.0-beta.0",
+            "version": "7.0.0-beta.0"
           }
         ]
     ]

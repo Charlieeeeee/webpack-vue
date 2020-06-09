@@ -11,7 +11,7 @@ module.exports = {
   // },
   entry: './src/main.js',
   output: {
-    filename: './static/js/main~[hash:8].js',
+    filename: 'js/main.[hash:8].js',
     path: `${projectPath}/dist`,
     publicPath: './'
   },

@@ -47,7 +47,7 @@ const prodConfig = {
       'process.env': env
     }),
     new MiniCssExtractPlugin({
-      filename: '[name]~[hash:8].css',
+      filename: '[name].[hash:8].css',
       chunkname: '[id].css'
     })
   ],
@@ -93,7 +93,7 @@ const prodConfig = {
           {
             loader: 'url-loader', // file-loader 退出历史舞台，url更加强大，可以把图片和字体处理为base64
             options: {
-              outputPath:'./static/',
+              // outputPath:'./',
               publicPath: './', // 解决打包后图片引用路径问题
               name: 'assets/[name].[ext]',
               limit: 0,// 10kb以内的才转为base64
