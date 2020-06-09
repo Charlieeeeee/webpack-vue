@@ -14,8 +14,9 @@ export default {
     {
       path: '/msg',
       name: 'msg',
-      // component: resolve => require(['@/pages/msg'], resolve) //这种方式会多打包出一个JS
-      component: () => import('@/pages/msg')
+      // component: resolve => require(['@/pages/msg'], resolve) // 这种方式会多打包出一个JS
+      // component: r => require.ensure([], () => r(require('@/pages/msg')), 'index') // 这种方式会多打包出一个JS
+      component: () => import('@/pages/msg') // 推荐使用这种方式
     }
   ]
 };

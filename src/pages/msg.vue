@@ -1,5 +1,5 @@
 <template>
-  <div @click="goHome">
+  <div>
       msg
   </div>
 </template>

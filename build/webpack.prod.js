@@ -26,6 +26,10 @@ switch (process.argv[3]) {
 const prodConfig = {
   mode: 'production',
   optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },//使用动态import的文件会另外打包成JS,使用到的时候再去加载
+    //如果是动态加载js，import(/* webpackChunkName: "lodash" */ 'lodash')可以指定打包后的文件名
     minimize: true,
     minimizer: [
       new OptimizeCssAssetsPlugin({
@@ -43,8 +47,8 @@ const prodConfig = {
       'process.env': env
     }),
     new MiniCssExtractPlugin({
-      filename: './static/css/[name]~[hash:8].css',
-      chunkname: './static/css/[id].css'
+      filename: '[name]~[hash:8].css',
+      chunkname: '[id].css'
     })
   ],
   module: {
@@ -52,7 +56,12 @@ const prodConfig = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader:MiniCssExtractPlugin.loader,
+            options:{
+              publicPath:'../'
+            }
+          },
           {
             loader: 'css-loader',
             options: {
@@ -85,9 +94,9 @@ const prodConfig = {
             loader: 'url-loader', // file-loader 退出历史舞台，url更加强大，可以把图片和字体处理为base64
             options: {
               outputPath:'./static/',
-              publicPath: '../', // 解决打包后图片引用路径问题
+              publicPath: './', // 解决打包后图片引用路径问题
               name: 'assets/[name].[ext]',
-              limit: 0// 10kb以内的才转为base64
+              limit: 0,// 10kb以内的才转为base64
             }
           },
           {
