@@ -12,7 +12,7 @@ module.exports = {
       es6: true
     },
     extends: [
-      '@vue/standard'
+      '@vue/standard'//继承该库的eslint检查
     ],
     globals: {
       NODE_ENV: true

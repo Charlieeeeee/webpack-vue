@@ -54,72 +54,76 @@ const prodConfig = {
   module: {
     rules: [
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: [
+        oneOf:[
           {
-            loader:MiniCssExtractPlugin.loader,
-            options:{
-              publicPath:'../'
-            }
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true// 可以在控制台看到class在哪个文件的第几行
-            }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              ident: 'postcss',
-              sourceMap: true,
-              plugins: loader => [
-                require('autoprefixer')({ overrideBrowserslist: ['> 0.15% in CN'] }), // 添加前缀
-                require('@moohng/postcss-px2vw')(require('./pxToVw'))
-              ]
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true// 可以在控制台看到class在哪个文件的第几行
-            }
-          }
-        ]// 从右(下)到左(上)处理
-      },
-      {
-        test: /\.(png|svg|jpg|gif|jpeg|ico|woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: 'url-loader', // file-loader 退出历史舞台，url更加强大，可以把图片和字体处理为base64
-            options: {
-              // outputPath:'./',
-              publicPath: './', // 解决打包后图片引用路径问题
-              name: 'assets/[name].[ext]',
-              limit: 0,// 10kb以内的才转为base64
-            }
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
+            test: /\.(sa|sc|c)ss$/,
+            use: [
+              {
+                loader:MiniCssExtractPlugin.loader,
+                options:{
+                  publicPath:'../'
+                }
               },
-              optipng: {
-                enabled: false
+              {
+                loader: 'css-loader',
+                options: {
+                  sourceMap: true// 可以在控制台看到class在哪个文件的第几行
+                }
               },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
+              {
+                loader: 'postcss-loader',
+                options: {
+                  ident: 'postcss',
+                  sourceMap: true,
+                  plugins: loader => [
+                    require('autoprefixer')({ overrideBrowserslist: ['> 0.15% in CN'] }), // 添加前缀
+                    require('@moohng/postcss-px2vw')(require('./pxToVw'))
+                  ]
+                }
               },
-              gifsicle: {
-                interlaced: false
-              },
-              webp: {
-                quality: 75
+              {
+                loader: 'sass-loader',
+                options: {
+                  sourceMap: true// 可以在控制台看到class在哪个文件的第几行
+                }
               }
-            }
+            ]// 从右(下)到左(上)处理
+          },
+          {
+            test: /\.(png|svg|jpg|gif|jpeg|ico|woff|woff2|eot|ttf|otf)$/,
+            use: [
+              {
+                loader: 'url-loader', // file-loader 退出历史舞台，url更加强大，可以把图片和字体处理为base64
+                options: {
+                  // outputPath:'./',
+                  publicPath: './', // 解决打包后图片引用路径问题
+                  name: 'assets/[name].[ext]',
+                  limit: 0,// 10kb以内的才转为base64
+                }
+              },
+              {
+                loader: 'image-webpack-loader',
+                options: {
+                  mozjpeg: {
+                    progressive: true,
+                    quality: 65
+                  },
+                  optipng: {
+                    enabled: false
+                  },
+                  pngquant: {
+                    quality: '65-90',
+                    speed: 4
+                  },
+                  gifsicle: {
+                    interlaced: false
+                  },
+                  webp: {
+                    quality: 75
+                  }
+                }
+              }
+            ]
           }
         ]
       }
