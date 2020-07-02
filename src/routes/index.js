@@ -1,22 +1,43 @@
 
+export const navRoutes = [
+  {
+    path: '/sync',
+    name: 'sync',
+    title: '.sync'
+  },
+  {
+    path: '/hook',
+    name: 'hook',
+    title: 'hook'
+  },
+  {
+    path: '/attrs_listener',
+    name: 'attrs_listener',
+    title: '$attrs_$listener'
+  },
+  {
+    path: '/slot',
+    name: 'myslot',
+    title: 'slot'
+  },
+  {
+    path: '/lifeCycle',
+    name: 'lifeCycle',
+    title: '自定义生命周期'
+  }
+];
+
 export default {
   mode: 'hash',
   routes: [
     {
       path: '',
-      redirect: '/home'
+      redirect: '/sync'
     },
-    {
-      path: '/home',
-      name: 'home',
-      component: () => import('@/pages/home')// 懒加载，组件，页面加载更快
-    },
-    {
-      path: '/msg',
-      name: 'msg',
-      // component: resolve => require(['@/pages/msg'], resolve) // 这种方式会多打包出一个JS
-      // component: r => require.ensure([], () => r(require('@/pages/msg')), 'index') // 这种方式会多打包出一个JS
-      component: () => import('@/pages/msg') // 推荐使用这种方式
-    }
+    ...navRoutes.map(item => ({
+      component: require(`@/pages${item.path}/index.vue`).default,
+      // component: resolve => require([`@/pages${item.path}/index.vue`], resolve),
+      ...item
+    }))
   ]
 };

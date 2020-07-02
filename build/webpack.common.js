@@ -26,6 +26,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html', // 打包后的名字
+      favicon: path.resolve('fav.ico'), // 在此处设置
       minify: {
         removeAttributeQuotes: false,
         collapseWhitespace: false

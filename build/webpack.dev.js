@@ -91,7 +91,7 @@ const devConfig = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          'style-loader',
+          'vue-style-loader',
           {
             loader: 'css-loader',
             options: {
