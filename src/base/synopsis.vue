@@ -1,4 +1,4 @@
-<template>
+// <template>
   <div class="synopsis-container">
       <slot></slot>
   </div>

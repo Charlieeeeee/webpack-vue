@@ -24,6 +24,21 @@ export const navRoutes = [
     path: '/lifeCycle',
     name: 'lifeCycle',
     title: '自定义生命周期'
+  },
+  {
+    path: '/extend',
+    name: 'extend',
+    title: 'extend'
+  },
+  {
+    path: '/provideInject',
+    name: 'provideInject',
+    title: '依赖注入'
+  },
+  {
+    path: '/transition',
+    name: 'mytransition',
+    title: 'transition'
   }
 ];
 
@@ -35,7 +50,7 @@ export default {
       redirect: '/sync'
     },
     ...navRoutes.map(item => ({
-      component: require(`@/pages${item.path}/index.vue`).default,
+      component: require(`@/pages${item.path}${item.path}.vue`).default,
       // component: resolve => require([`@/pages${item.path}/index.vue`], resolve),
       ...item
     }))

@@ -4,6 +4,10 @@ import Vue from 'vue';
 const notifyVisibilityChange = (lifeCycleName, vm) => {
   // 生命周期函数会存在$options中，通过$options[lifeCycleName]获取生命周期
   const lifeCycles = vm.$options[lifeCycleName];
+
+  // 触发生命周期钩子
+  vm.$emit(`hook:${lifeCycleName}`);
+
   // 因为使用了created的合并策略，所以是一个数组
   if (lifeCycles && lifeCycles.length) {
     // 遍历 lifeCycleName对应的生命周期函数列表，依次执行

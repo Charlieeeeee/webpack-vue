@@ -1,13 +1,19 @@
 import Vue from 'vue';
+
+// 第一种方式引入
 // import synopsis from './synopsis.vue';
 // import codes from './codes.vue';
+// import title from './title.vue';
 
 // Vue.use(synopsis);
 // Vue.use(codes);
+// Vue.use(title);
 
 // Vue.component('c-synopsis', synopsis);
 // Vue.component('c-codes', codes);
+// Vue.component('c-title', title);
 
+// 第二种方式引入
 const requireComponent = require.context(
   // 其组件目录的相对路径
   './',

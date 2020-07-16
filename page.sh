@@ -20,4 +20,4 @@ export default {
 .$pageName-page{
 
 }
-</style>" > ./src/pages/${pageName}/index.vue
+</style>" > ./src/pages/${pageName}/${pageName}.vue
