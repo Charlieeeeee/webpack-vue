@@ -4,12 +4,12 @@ export default {
   routes: [
     {
       path: '',
-      redirect: '/home'
+      redirect: '/verticalCenter'
     },
     {
-      path: '/home',
-      name: 'home',
-      component: () => import('@/pages/home')// 懒加载，组件，页面加载更快
+      path: '/verticalCenter',
+      name: 'verticalCenter',
+      component: () => import('@/pages/verticalCenter')// 懒加载，组件，页面加载更快
     },
     {
       path: '/msg',
