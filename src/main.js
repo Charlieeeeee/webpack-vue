@@ -9,6 +9,7 @@ import './style/common.scss';
 import './style/init-css.scss';
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import './base';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -17,5 +18,16 @@ new Vue({
   el: '#app',
   router: new VueRouter(router),
   store: new Vuex.Store(store),
-  render: h => h(App)
+  render: h => h(App),
+  data: {
+    isShowNavBar: true
+  },
+  methods: {
+    showNavBar() {
+      this.isShowNavBar = true;
+    },
+    hideNavBar() {
+      this.isShowNavBar = false;
+    }
+  }
 });
