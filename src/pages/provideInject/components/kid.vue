@@ -1,15 +1,25 @@
 <template>
   <div class="kid-container">
-    <el-button type="primary" :size="mySize">主要按钮</el-button>
+    <el-button type="primary" :size="size">主要按钮</el-button>
   </div>
 </template>
 
 <script>
 export default {
+  inheritAttrs: false,
   inject: {
     mySize: {
       default: "medium",
       from: "btnSize"
+    },
+    observableBtn:{
+      default: "medium",
+      from: "observableBtn"
+    }
+  },
+  computed:{
+    size(){
+      return this.$attrs.canChange ? this.observableBtn.size : this.mySize;
     }
   }
 };

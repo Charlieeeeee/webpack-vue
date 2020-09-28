@@ -1,21 +1,47 @@
 <template>
   <div class="provide-inject-page">
+    <h3>can change:</h3>
+    close <el-switch v-model="canChange"></el-switch> open
+    <h4>ancestor:</h4>
+    <el-button type="primary" size="mini" @click="handleChange">change</el-button>
     <h4>father:</h4>
-    <c-father />
+    <c-father :canChange="canChange"/>
   </div>
 </template>
 
 <script>
 import father from "./components/father";
+import Vue from 'vue'
 export default {
   name: "provideInject",
+  data:()=>({
+    $_name: 'charlie',
+    canChange: false,
+    changeFlag: false
+  }),
   components: {
     "c-father": father
   },
   provide: {
-    btnSize: "mini" /* medium, small, mini */
+    btnSize: "mini", /* medium, small, mini */
+    observableBtn: Vue.observable({
+      size: "mini"
+    })
   },
-  methods: {}
+  watch:{
+    changeFlag(val){
+      const size = val ? 'medium' : 'mini';
+      this._provided.btnSize = size
+      this._provided.observableBtn.size = size
+    }
+  },
+  methods: {
+    handleChange(){
+        if(this.canChange){
+          this.changeFlag = ! this.changeFlag;
+        }
+    }
+  }
 };
 </script>
 

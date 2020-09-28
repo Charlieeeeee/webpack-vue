@@ -12,7 +12,7 @@
 export default {
     name:'grandGrandChild',
     props:['coo'],
-    inheritAttrs:false,
+    // inheritAttrs:false,
     methods:{
         handleClick(){
             this.$emit('update:coo','new coo')

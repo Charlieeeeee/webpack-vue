@@ -39,6 +39,10 @@ export const navRoutes = [
     path: '/transition',
     name: 'mytransition',
     title: 'transition'
+  }, {
+    path: '/grid',
+    name: 'grid',
+    title: 'grid'
   }
 ];
 
