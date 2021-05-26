@@ -9,7 +9,37 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <div v-if="isShowDiv" ref="myDiv">here is my div</div>
+    </div>
+    <!-- <script src="./index.js"></script> -->
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        var vue = new Vue({
+            el:"#app",
+            data(){
+                return {
+                    name:1,
+                    isShowDiv: false
+                }
+            },
+            mounted(){
+                setTimeout(()=>{
+                    this.isShowDiv = true
+                    console.log(this.$refs.myDiv)
+                    this.$nextTick(()=>{
+                        console.log(this.$refs.myDiv)
+                    })
+                })
+            },
+            methods:{
+                getName(){
+                    this.name="修改----我是父组件a"
+                },
+            },
+        })
+
+    </script>
 </body>
 
 </html>
